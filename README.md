@@ -1,5 +1,5 @@
 # android-kotlin-inteview
-Interview question example of android and kotlin 
+
 
 <!-- ![image](screenshots/songs-list.png)) -->
 <img src="screenshots/songs-list.png" width="400" height="700">
