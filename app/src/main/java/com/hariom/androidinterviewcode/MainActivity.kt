@@ -13,10 +13,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.i("MainActivity", "onCreate: ")
 
-        val songList = listOf<String>("Dance","Bhakti","Dhoon","Classical")
+        val songsObject = mutableListOf<Song>()
+        songsObject.add(Song("Hare ram", "Hare hare ram hare ram ! Hare krisna hare krisna krisna krisna hare kare"))
+        songsObject.add(Song("Dance", "Dance song descriptions"))
+        songsObject.add(Song("Bhajan", "Bhajan song descriptions"))
+        songsObject.add(Song("Gujarati", "Gujarati song descriptions"))
+
+
 
         var songRecycleView = findViewById<RecyclerView>(R.id.rvSongList)
-        songRecycleView.adapter = SongAdapter(songList)
+        songRecycleView.adapter = SongAdapter(songsObject)
 
         songRecycleView.layoutManager = LinearLayoutManager(this)
 

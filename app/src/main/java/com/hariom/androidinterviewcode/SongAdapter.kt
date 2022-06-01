@@ -1,12 +1,15 @@
 package com.hariom.androidinterviewcode
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class SongAdapter(val songs:List<String>) : RecyclerView.Adapter<SongAdapter.MyViewHolder>() {
+class SongAdapter(val songs:List<Song>) : RecyclerView.Adapter<SongAdapter.MyViewHolder>() {
 
 
     // Create view for recyclerview
@@ -19,8 +22,13 @@ class SongAdapter(val songs:List<String>) : RecyclerView.Adapter<SongAdapter.MyV
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-                                holder.textTitle.text = songs[position]
-                                holder.textDescription.text = songs[position]
+                                holder.textTitle.text = songs[position].title
+                                holder.textDescription.text = songs[position].desciptions
+                                var color = "#e075d9"
+                                if (position % 2 == 0){
+                                    color = "#ddc3f7"
+                                }
+                    holder.linearLayoutSong.setBackgroundColor(Color.parseColor(color))
     }
 
     override fun getItemCount(): Int {
@@ -30,6 +38,7 @@ class SongAdapter(val songs:List<String>) : RecyclerView.Adapter<SongAdapter.MyV
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         var textTitle = itemView.findViewById<TextView>(R.id.tvTitle)
         var textDescription = itemView.findViewById<TextView>(R.id.tvDescription)
+        var linearLayoutSong = itemView.findViewById<LinearLayout>(R.id.llSongItemContainer)
     }
 }
 
