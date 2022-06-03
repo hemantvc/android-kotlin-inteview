@@ -63,9 +63,14 @@ dependencies {
 //    // Livedata and ViewModel
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.4.1"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1"
-//
-    implementation("androidx.room:room-runtime:2.4.2")
-    annotationProcessor("androidx.room:room-compiler:2.4.2")
+
+//  Room
+    def roomVersion = "2.4.2"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    // Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:2.4.2"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:2.9.0"
