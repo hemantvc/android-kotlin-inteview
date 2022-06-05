@@ -1,8 +1,11 @@
 package com.hariom.androidinterviewcode
 
-class UserRegistrationService {
-    private val userRepository = UserRepository()
-    private val emailService = EmailService()
+/**
+ * Constructor injection
+ */
+class UserRegistrationService(private val userRepository: UserRepository = UserRepository(),
+                              private val emailService: EmailService = EmailService()
+) {
 
     fun registerUser(email : String, password : String){
 
